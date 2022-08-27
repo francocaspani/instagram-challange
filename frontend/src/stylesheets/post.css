@@ -1,0 +1,88 @@
+.card-post {
+    max-width: 470px;
+    min-height: 790px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border: 1px solid rgb(219, 219, 219);
+    margin-left: 105px;
+}
+
+.header-card {
+    margin: 8px 4px 8px 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.avatar-container-card {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.username-contariner {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    min-height: 40px;
+
+}
+
+.username {
+    color: rgb(38, 38, 38);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.header-card-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-header-card{
+    padding: 8px;
+    padding-right: 12px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.icons-card-container{
+    display: flex;
+    flex-direction: row;
+    padding-inline: 2px;
+    padding-bottom: 6px;
+    justify-content: space-between;
+}
+
+.like-icon{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.icons-1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-container{
+    padding-inline: 12px;
+    color: rgb(38, 38, 38);
+}
+.username-text{
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+.text{
+    font-weight: 400;
+    font-size: 14px;
+}
