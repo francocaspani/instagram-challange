@@ -1,11 +1,10 @@
 .card-post {
-    max-width: 470px;
-    min-height: 790px;
+    max-width: 310px;
+    min-height: 500px;
     border-radius: 8px;
     margin-bottom: 12px;
     overflow: hidden;
     border: 1px solid rgb(219, 219, 219);
-    margin-left: 105px;
 }
 
 .header-card {
@@ -38,13 +37,14 @@
     font-weight: 600;
     cursor: pointer;
 }
-.header-card-container{
+
+.header-card-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.button-header-card{
+.button-header-card {
     padding: 8px;
     padding-right: 12px;
     height: 40px;
@@ -52,7 +52,7 @@
     cursor: pointer;
 }
 
-.icons-card-container{
+.icons-card-container {
     display: flex;
     flex-direction: row;
     padding-inline: 2px;
@@ -60,7 +60,7 @@
     justify-content: space-between;
 }
 
-.like-icon{
+.like-icon {
     height: 40px;
     width: 40px;
     display: flex;
@@ -68,21 +68,84 @@
     align-items: center;
     cursor: pointer;
 }
-.icons-1{
+
+.img-card {
+    width: 100%;
+}
+.icons-1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.text-container{
+
+.text-container {
     padding-inline: 12px;
+    padding-bottom: 12px;
     color: rgb(38, 38, 38);
 }
-.username-text{
+
+.username-text {
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
 }
-.text{
+
+.text {
     font-weight: 400;
     font-size: 14px;
+}
+
+.more-post {
+    color: rgb(142, 142, 142);
+    cursor: pointer;
+}
+
+.image-container {
+    position: relative;
+}
+
+.instagram-heart {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: url("https://imgur.com/rksyGE8.png") no-repeat center/contain;
+    opacity: 0;
+    transform: scale(0);
+    animation-duration: 1000ms;
+    animation-name: like-heart-animation;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes like-heart-animation {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    15% {
+        opacity: .9;
+        transform: scale(1.2);
+    }
+
+    30% {
+        transform: scale(.95);
+    }
+
+    45%,
+    80% {
+        opacity: .9;
+        transform: scale(1);
+    }
+}
+
+@media screen and (min-width : 768px) {
+    .card-post {
+        max-width: 470px;
+        min-height: 760px;
+    }
 }

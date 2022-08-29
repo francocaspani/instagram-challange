@@ -27,7 +27,7 @@ const postControllers = {
         })
     },
     addPost: async (req, res) => {
-        const { image, text } = req.body.data
+        const { image, text } = req.body.newPost
         let post
         let error = null
         try {
@@ -44,7 +44,7 @@ const postControllers = {
     },
     modifyPost: async (req, res) => {
         const id = req.params.id
-        const post = req.body.data
+        const post = req.body.postData
         let postdb
         let error = null
         try {
