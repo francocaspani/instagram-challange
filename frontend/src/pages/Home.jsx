@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import postActions from '../redux/actions/postsActions';
 
 export default function Home() {
+  const [reload, setReload] = useState(false)
   const dispatch = useDispatch()
 
   const posts = useSelector(store => store.postsReducer.posts)
@@ -12,18 +13,18 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(postActions.getPosts())
-  }, [newPost])
+  }, [newPost, reload])
 
-  console.log(posts)
+  const onClickReload = () => setReload(!reload)
+
 
   return (
     <div className='main-container-home'>
-      {posts.reverse().map((post, i) => {
+      {posts.map((post, i) => {
         return (
-          <Post key={i} post={post} />
+          <Post key={i} post={post} setReload={onClickReload} />
         )
       })}
-
     </div>
   )
 }

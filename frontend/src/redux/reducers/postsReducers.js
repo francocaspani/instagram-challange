@@ -9,7 +9,7 @@ const postsReducer = (state = initialState, action) => {
         case 'getPosts':
             return{
                 ...state,
-                posts: action.payload,
+                posts: action.payload.reverse(),
             }
         case 'getOnePost':
             return{

@@ -27,13 +27,14 @@ const postControllers = {
         })
     },
     addPost: async (req, res) => {
-        const { image, text } = req.body.newPost
+        const { image, text, likes } = req.body.newPost
         let post
         let error = null
         try {
             post = await new Post({
                 image,
-                text
+                text,
+                likes
             }).save()
         } catch (err) { error = err }
         res.json({

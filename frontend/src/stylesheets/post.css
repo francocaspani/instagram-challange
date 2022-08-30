@@ -146,6 +146,5 @@
 @media screen and (min-width : 768px) {
     .card-post {
         max-width: 470px;
-        min-height: 760px;
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import '../stylesheets/header.css'
-import ModalNewPost from './ModalNewPost';
-import Modal from '@mui/material/Modal';
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
+import ModalNewPost from './ModalNewPost'
+import Modal from '@mui/material/Modal'
+import Backdrop from '@mui/material/Backdrop'
+import Box from '@mui/material/Box'
 
 export default function Header() {
     const [open, setOpen] = React.useState(false);

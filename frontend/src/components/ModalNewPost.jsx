@@ -21,7 +21,8 @@ export default function ModalNewPost({open, handleClose}) {
         event.preventDefault()
         const newPost = {
             image : event.target[0].value,
-            text : event.target[1].value
+            text : event.target[1].value,
+            likes : 0
         }
         const res = await dispatch(postActions.addPost(newPost))
         handleClose()

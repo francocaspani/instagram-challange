@@ -36,7 +36,8 @@ const postActions = {
     modifyPost: (id,postData) =>{
         return async (dispatch, getState) => {
             try {
-                const res = await axios.put(`${urlBackend}/posts/${id}`, postData)
+                const res = await axios.put(`${urlBackend}/posts/${id}`, {postData})
+                return res
             } catch (error) {
                 console.log(error)
             }
