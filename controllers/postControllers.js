@@ -1,4 +1,6 @@
 const Post = require('../models/post')
+const crypto = require('crypto')
+const path = require('path')
 
 const postControllers = {
     getPosts: async (req, res) => {
@@ -66,6 +68,28 @@ const postControllers = {
         } catch (err) { error = err }
         res.json({
             response: error ? 'ERROR' : { post },
+            success: error ? false : true,
+            error: error
+        })
+    },
+    uploadImage: async (req, res) => {
+        const { file } = req.files
+        let imageUrl
+        let error = null
+        try {
+            const fileName = crypto.randomBytes(10).toString('hex') + '.' + file.name.split('.')[file.name.split('.').length - 1]
+            const ruta = path.resolve('image', fileName)
+            file.mv(ruta, err => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log('file uploaded')
+                }
+            })
+            imageUrl = `http://localhost:4000/${fileName}`
+        } catch (err) { error = err }
+        res.json({
+            response: error ? 'ERROR' : { imageUrl },
             success: error ? false : true,
             error: error
         })

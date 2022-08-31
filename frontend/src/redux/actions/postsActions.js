@@ -23,9 +23,9 @@ const postActions = {
         }
     },
     addPost: (newPost) => {
-        return async (dispatch, getState) =>{
+        return async (dispatch, getState) => {
             try {
-                const res = await axios.post(`${urlBackend}/posts`, {newPost})
+                const res = await axios.post(`${urlBackend}/posts`, { newPost })
                 dispatch({ type: 'addPost', payload: res.data.response.post })
                 return res
             } catch (error) {
@@ -33,20 +33,30 @@ const postActions = {
             }
         }
     },
-    modifyPost: (id,postData) =>{
+    modifyPost: (id, postData) => {
         return async (dispatch, getState) => {
             try {
-                const res = await axios.put(`${urlBackend}/posts/${id}`, {postData})
+                const res = await axios.put(`${urlBackend}/posts/${id}`, { postData })
                 return res
             } catch (error) {
                 console.log(error)
             }
         }
     },
-    removePost: (id)=> {
+    removePost: (id) => {
         return async (dispatch, getState) => {
             try {
                 const res = await axios.delete(`${urlBackend}/posts/${id}`)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    },
+    uploadImage: (files) => {
+        return async (dispatch, getState) => {
+            try {
+                const res = await axios.post(`${urlBackend}/upload`, files)
+                return res
             } catch (error) {
                 console.log(error)
             }
