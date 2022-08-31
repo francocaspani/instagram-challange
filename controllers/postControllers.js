@@ -76,23 +76,31 @@ const postControllers = {
         const { file } = req.files
         let imageUrl
         let error = null
-        try {
-            const fileName = crypto.randomBytes(10).toString('hex') + '.' + file.name.split('.')[file.name.split('.').length - 1]
-            const ruta = path.resolve('image', fileName)
-            file.mv(ruta, err => {
-                if (err) {
-                    console.log(err)
-                } else {
-                    console.log('file uploaded')
-                }
+        if (file.mimetype.includes('image') || file.mimetype.includes('video')){
+            try {
+                const fileName = crypto.randomBytes(10).toString('hex') + '.' + file.name.split('.')[file.name.split('.').length - 1]
+                const ruta = path.resolve('image', fileName)
+                file.mv(ruta, err => {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        console.log('file uploaded')
+                    }
+                })
+                imageUrl = `http://localhost:4000/${fileName}`
+            } catch (err) { error = err }
+            res.json({
+                response: error ? 'ERROR' : { imageUrl },
+                success: error ? false : true,
+                error: error
             })
-            imageUrl = `http://localhost:4000/${fileName}`
-        } catch (err) { error = err }
-        res.json({
-            response: error ? 'ERROR' : { imageUrl },
-            success: error ? false : true,
-            error: error
-        })
+        } else {
+            res.json({
+                response: 'ERROR',
+                success: false ,
+                error: 'Tipo de archivo incorrecto'
+            })
+        }
     }
 }
 
