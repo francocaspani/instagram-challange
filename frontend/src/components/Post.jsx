@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState} from 'react'
+import { useState } from 'react'
 import '../stylesheets/post.css'
 import { useDispatch } from "react-redux"
 import postActions from '../redux/actions/postsActions'
@@ -14,9 +14,7 @@ export default function Post({ post, setReload }) {
     const [liked, setLiked] = useState(false)
 
     const img = ["jpg", "gif", "png", "jpeg"]
-    // const vid = ["mp4", "3gp", "ogg", "mov"]
-    const url = new URL(post.image)
-    const extension = url.pathname.split(".")[1]
+    const extension = post.image.split(".")[post.image.split(".").length - 1]
     const text = post.text
     const textToShow = text.slice(0, 50)
     const dispatch = useDispatch()

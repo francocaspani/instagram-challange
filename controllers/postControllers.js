@@ -32,18 +32,27 @@ const postControllers = {
         const { image, text, likes } = req.body.newPost
         let post
         let error = null
-        try {
-            post = await new Post({
-                image,
-                text,
-                likes
-            }).save()
-        } catch (err) { error = err }
-        res.json({
-            response: error ? 'ERROR' : { post },
-            success: error ? false : true,
-            error: error
-        })
+        const validFiles = ["jpg", "gif", "png", "jpeg", "mp4", "mov", "webm",'MP4']
+        const extension = image.split(".")[image.split(".").length - 1]
+        if (validFiles.includes(extension)) {
+            try {
+                post = await new Post({
+                    image,
+                    text,
+                    likes
+                }).save()
+            } catch (err) { error = err }
+            res.json({
+                response: error ? 'ERROR' : { post },
+                success: error ? false : true,
+                error: error
+            })
+        } else {
+            res.json({
+                response: 'El archivo ingresado no se adminte',
+                success: false
+            })
+        }
     },
     modifyPost: async (req, res) => {
         const id = req.params.id
@@ -76,7 +85,7 @@ const postControllers = {
         const { file } = req.files
         let imageUrl
         let error = null
-        if (file.mimetype.includes('image') || file.mimetype.includes('video')){
+        if (file.mimetype.includes('image') || file.mimetype.includes('video')) {
             try {
                 const fileName = crypto.randomBytes(10).toString('hex') + '.' + file.name.split('.')[file.name.split('.').length - 1]
                 const ruta = path.resolve('image', fileName)
@@ -97,7 +106,7 @@ const postControllers = {
         } else {
             res.json({
                 response: 'ERROR',
-                success: false ,
+                success: false,
                 error: 'Tipo de archivo incorrecto'
             })
         }
