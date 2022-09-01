@@ -54,7 +54,6 @@ export default function ModalNewPost({ open, handleClose }) {
             const formData = new FormData()
             formData.append('file', file)
             const res = await dispatch(postActions.uploadImage(formData))
-            console.log(res)
             if (res.data.success) {
                 setImageUrl(res.data.response.imageUrl)
                 handleClose()

@@ -31,8 +31,7 @@ export default function Post({ post, setReload }) {
         const postData = {
             likes: likes
         }
-        const res = await dispatch(postActions.modifyPost(post._id, postData))
-        console.log(res)
+        await dispatch(postActions.modifyPost(post._id, postData))
         setReload()
     }
 
