@@ -9,10 +9,9 @@ import Box from '@mui/material/Box'
 import ModalModifyPost from './ModalModifyPost'
 
 export default function Post({ post, setReload }) {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const [showFullText, setShowFullText] = useState(false)
     const [liked, setLiked] = useState(false)
-
     const img = ["jpg", "gif", "png", "jpeg"]
     const extension = post.image.split(".")[post.image.split(".").length - 1]
     const text = post.text
