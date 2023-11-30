@@ -20,3 +20,4 @@ En el marco de un desafio para una entrevista laboral, se me solicitó desarroll
 2. Ejecutar el comando `npm start` en la carpeta *raiz*, lo que inicilizara el BackEnd.
 3. Ejecutar el comando `npm i` dentro de la carpeta *frontend* para instalar las dependecias requeridas para el funcionamiento del FrontEnd, desarrollado con React.JS.
 4. Luego ejecutar el comando `npm start` dentro de la carpeta *frontend*, lo que inicializara el FrontEnd.
+
